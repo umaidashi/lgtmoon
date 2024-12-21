@@ -12,14 +12,21 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "index",
-      "title": "lgtmoon",
-      "description": "Template for showing a static grid",
+      "name": "recent",
+      "title": "recent",
+      "description": "Show 'Recent' lgtmoon.",
+      "mode": "view"
+    },
+    {
+      "name": "random",
+      "title": "random",
+      "description": "Show 'Random' lgtmoon.",
       "mode": "view"
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.69.0"
+    "@raycast/api": "^1.69.0",
+    "@raycast/utils": "^1.18.1"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.6",
