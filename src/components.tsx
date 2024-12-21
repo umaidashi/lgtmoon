@@ -1,12 +1,14 @@
-import { Action, ActionPanel } from "@raycast/api"
-
+import { Action, ActionPanel } from "@raycast/api";
 
 export const Actions = ({ url }: { url: string }) => {
   return (
     <ActionPanel>
-      <Action.Paste content={url} title="Paste LGTM" />
+      <Action.Paste content={url} title="Paste Lgtm" />
       <Action.OpenInBrowser url={url} title="Open in Browser" />
-      <Action.OpenInBrowser url={"https://github.com/pulls?q=sort:updated-desc+is:pr+is:open+archived:false+review-requested:@me+"} title="Let's Review Pull Requests!!" />
+      <Action.OpenInBrowser
+        url={"https://github.com/pulls?q=sort:updated-desc+is:pr+is:open+archived:false+review-requested:@me+"}
+        title="Let's Review Pull Requests!!"
+      />
     </ActionPanel>
-  )
-}
+  );
+};

@@ -14,19 +14,11 @@ export default function Command() {
         </ActionPanel>
       }
     >
-      {
-        data.map((image) => {
-          const key = image.url.split("/").slice(-1)[0];
+      {data.map((image) => {
+        const key = image.url.split("/").slice(-1)[0];
 
-          return (
-            <Grid.Item
-              key={key}
-              content={image.url}
-              title={key}
-              actions={<Actions url={image.url} />}
-            />
-          )
-        })}
+        return <Grid.Item key={key} content={image.url} title={key} actions={<Actions url={image.url} />} />;
+      })}
     </Grid>
   );
 }
