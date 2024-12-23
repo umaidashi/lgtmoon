@@ -1,7 +1,7 @@
 import { Action, ActionPanel } from "@raycast/api";
 
 export const Actions = ({ url }: { url: string }) => {
-  const urlMarkdown = `[${url}](${url})`;
+  const urlMarkdown = `![${url}](${url})`;
   return (
     <ActionPanel>
       <Action.Paste content={urlMarkdown} title="Paste Lgtm" />
