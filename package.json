@@ -13,13 +13,13 @@
   "commands": [
     {
       "name": "recent",
-      "title": "recent",
+      "title": "Recent LGTM",
       "description": "Show 'Recent' lgtmoon.",
       "mode": "view"
     },
     {
       "name": "random",
-      "title": "random",
+      "title": "Random LGTM",
       "description": "Show 'Random' lgtmoon.",
       "mode": "view"
     }
