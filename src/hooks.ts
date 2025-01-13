@@ -1,8 +1,8 @@
 import { SearchResult, Image } from "./type";
 import { useFetch } from "@raycast/utils";
 
-export const useFetchLgtmoonRecent = (): { isLoading: boolean; data: Image[]; revalidate: () => void } => {
-  const { isLoading, data, revalidate } = useFetch("https://lgtmoon.dev/api/images/recent", {
+const createLgtmoonFetcher = (endpoint: string) => (): { isLoading: boolean; data: Image[]; revalidate: () => void } => {
+  const { isLoading, data, revalidate } = useFetch(`https://lgtmoon.dev/api/images/${endpoint}`, {
     mapResult(result: SearchResult) {
       return {
         data: result.images,
@@ -14,15 +14,5 @@ export const useFetchLgtmoonRecent = (): { isLoading: boolean; data: Image[]; re
   return { isLoading, data, revalidate };
 };
 
-export const useFetchLgtmoonRandom = (): { isLoading: boolean; data: Image[]; revalidate: () => void } => {
-  const { isLoading, data, revalidate } = useFetch("https://lgtmoon.dev/api/images/random", {
-    mapResult(result: SearchResult) {
-      return {
-        data: result.images,
-      };
-    },
-    initialData: [],
-  });
-
-  return { isLoading, data, revalidate };
-};
+export const useFetchLgtmoonRecent = createLgtmoonFetcher("recent");
+export const useFetchLgtmoonRandom = createLgtmoonFetcher("random");
