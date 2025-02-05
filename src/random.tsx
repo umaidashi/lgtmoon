@@ -1,19 +1,12 @@
-import { ActionPanel, Action, Grid } from "@raycast/api";
-import { useFetchLgtmoonRandom } from "./hooks";
+import { Grid } from "@raycast/api";
 import { Actions } from "./components";
+import { useFetchLgtmoonRandom } from "./hooks";
 
 export default function Command() {
-  const { isLoading, data, revalidate } = useFetchLgtmoonRandom();
+  const { isLoading, data } = useFetchLgtmoonRandom();
 
   return (
-    <Grid
-      isLoading={isLoading}
-      actions={
-        <ActionPanel>
-          <Action title="Select" onAction={() => revalidate()} />
-        </ActionPanel>
-      }
-    >
+    <Grid isLoading={isLoading}>
       {data.map((image) => {
         const key = image.url.split("/").slice(-1)[0];
 
