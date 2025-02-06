@@ -8,6 +8,10 @@ export const Actions = ({ url }: { url: string }) => {
   const { value: urls, setValue } = useLocalStorage<Urls>("url");
   const setLocalStorage = async (): Promise<void> => {
     const beforeUrls = urls ? urls : [];
+    const isExist = beforeUrls.find((u) => u.url === url);
+    if (isExist) {
+      return;
+    }
     const newUrls = [{ url: url }, ...beforeUrls];
     await setValue(newUrls);
   };
